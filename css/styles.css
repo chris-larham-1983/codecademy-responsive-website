@@ -1,0 +1,233 @@
+/* include the padding and border values in the specified dimensions for each element */
+* {
+    box-sizing: border-box;
+}
+
+/* set font-size, display, and flex-direction of the <body> element */
+body {
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* set the font, color, background color, and opacity of the <body>, <header>, <a>, <h2>, <h3>, <h4>, <h5>, <figcaption>, <div id='teas'>, <div class='location'>, and <footer> elements */
+body, header, a, h2, h3, h4, h5, figcaption, div#teas, .location, footer {
+    font-family: Helvetica;
+    color: seashell;
+    background-color: black;
+    opacity: 0.9;
+}
+
+/* set the position, height, width, bottom border, display, alignment, and prominence of the <header> element */
+header {
+    top: 0;
+    position: fixed;
+    height: 69px;
+    width: 100%;
+    border-bottom: 1px solid seashell;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+/* set the position, height, width, and left margin of the header <img> element */
+header img {
+    position: relative;
+    height: 50px;
+    width: auto;
+    margin-left: 10px;
+}
+
+/* set the right margin, display, flex-direction, flex-wrap, item alignment, and content alignment of the <ul> element */
+ul {
+    margin-right: 10px;
+    display: inline-flex;
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: center;
+}
+
+/* set the display, margin, and text decoration of the <li> elements */
+li {
+    display: inline-block;
+    margin: 10px;
+    text-decoration: underline;
+}
+
+/* defines the background image, margin, display, maximum width, minimum height, flex direction, and vertical content spacing of the <section id='mission'> element */
+#mission {
+    background-image: url("../images/mission_background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-basis: 1200px;
+    max-width: 1200px;
+    min-height: 700px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* defines the background color, text alignment, and width of the <div id='mission_statements> element */
+#mission_statements {
+    background-color: black;
+    text-align: center;
+    width: 100%;
+}
+
+/* defines the maximum width, height, margin, and text alignment of the <section id='featured_tea'> element */
+#featured_tea {
+    max-width: 1000px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* defines the top padding of the <h2> element within the <section id='featured_tea'> element */
+#featured_tea h2 {
+    padding-top: 30px;
+}
+
+/* defines the display, flex direction, flex wrap, horizontal content alignment, and flex-basis of the <div id='teas'> element */
+#teas {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    flex-basis: 1000px;
+}
+
+/* defines the margin and width of the <figure> elements. */
+figure {
+    margin: 10px;
+    width: 300px;
+}
+
+/* defines the height and width of the figure <img> elements. */
+figure img {
+    height: 200px;
+    width: 300px;
+}
+
+/* defines the text alignment and top margin of the <figcaption> elements. */
+figcaption {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* defines the background image, margin, display, maximum width, and text alignment of the <section id='locations'> element */
+#locations {
+    background-image: url("../images/locations_background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 1200px;
+    text-align: center;
+}
+
+/* defines the background color and top padding of the <h2> element within the <section id='locations'> element */
+#locations h2 {
+    background-color: transparent;
+    padding-top: 52px;
+}
+
+/* defines the display, flex direction, flex wrap, horizontal content alignment, and flex basis of the <div id='location_container'> element. */
+#location_container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    flex-basis: 1200px;
+}
+
+/* defines the height, width, margin, display, flex direction, vertical content alignment, text alignment, and opacity of the <div class='location'> elements. */
+.location {
+    height: 300px;
+    width: 300px;
+    margin: 15px 20px 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    opacity: 1;
+}
+
+/* defines the height and text alignment of the <section id='contact'> element. */
+#contact {
+    height: 200px;
+    text-align: center;
+}
+
+/* defines the left & bottom padding and the text alignment of the <footer> element. */
+footer {
+    padding-left: 20px;
+    padding-bottom: 20px;
+    text-align: left;
+}
+
+/* media query to define the position of the <section id='mission'>, <section id='featured_tea'>, <section id='locations'>, <section id='contact'>, and <footer> elements to account for the fixed <header>
+on screens that are at least 601 pixels wide.  Also defines the top padding property for the targets of internal page links so that the correct <section>s are displayed, rather than being hidden behind the
+fixed <header>.
+ */
+@media only screen and (min-width: 601px) {
+    #mission, #featured_tea, #locations, #contact, footer {
+        position: relative;
+        top: 69px;
+    }
+    :target {
+        padding-top: 69px;
+    }
+}
+
+/* media query to specify styles for screens that are at most 600 pixels wide. On such screens: the font-size of <li> elements decreases; the height of the <header> element increases, and its spacing of horizontal
+content changes; the height of the header <img> element increases; the position of <section id='mission'>, <section id='featured_tea'>, <section id='locations'>, <section id='contact'>, and <footer> elements change
+to accommodate the enlarged <header>; and the top padding property for the targets of internal page links increases so that the <section>s are correctly displayed, rather than being hidden behind the enlarged fixed
+header. */
+@media only screen and (max-width: 600px) {
+    li {
+        font-size: 0.85em;
+    }
+    header {
+        height: 150px;
+        justify-content: flex-start;
+    }
+    header img {
+        height: 100px;
+    }
+    #mission, #featured_tea, #locations, #contact, footer {
+        position: relative;
+        top: 150px;
+    }
+    :target {
+        padding-top: 150px;
+    }
+}
+
+/* media query to apply styles for screens whose minimum width is 300 pixels.  On such a screen, only one 300-pixel wide location can be displayed, so the height of the <section id='locations'> element should
+be [(3 x 300px height) + (3 x 15px top margins) + (52px <h2> top padding) = 997px + 153px extra height to ensure that items are neatly vertically centred = ] 1150px. */
+@media only screen and (min-width: 300px) {
+    #locations {
+        height: 1150px;
+    }
+}
+
+/* media query to apply styles for screens whose minimum width is 720 pixels.  On such a screen, only two 300-pixel wide locations can be displayed, so the height of the <section id='locations'> element should
+be [(2 x 300px height) + (3 x 15px top margins) + (52px <h2> top padding) = 697px + 153px extra height to ensure that items are neatly vertically centred = ] 850px. */
+@media only screen and (min-width: 720px) {
+    #locations {
+        height: 850px;
+    }
+}
+
+/* media query to apply style for screens whose minimum width is 1060 pixels.  On such a screen, all three 300-pixel wide locations can be displayed, so the height of the <section id='locations'> element should
+match the design specification of 500px. */
+@media only screen and (min-width: 1060px) {
+    #locations {
+        height: 500px;
+    }
+}
